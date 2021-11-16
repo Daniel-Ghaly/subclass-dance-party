@@ -25,3 +25,14 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.BlinkyDancer {
+  border:10px solid blue;
+  border-radius:10px;
+  position:absolute;
+}
+
+.BatmanDancer{
+  border:10px solid pink;
+  border-radius:10px;
+  position:absolute;
+}
