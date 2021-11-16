@@ -5,6 +5,9 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image: url("https://m.media-amazon.com/images/I/61fObkK8bTL._AC_SL1001_.jpg");
+  background-size:100% 100%;
+  background-repeat:no-repeat;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -26,13 +29,34 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 .BlinkyDancer {
-  border:10px solid blue;
-  border-radius:10px;
+  border: none;
   position:absolute;
+  background-image: url(dog.png);
+  height: 100px;
+  width: 100px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.BlinkyDancer:hover {
+  transform: rotate(180deg);
+  position: absolute;
+
 }
 
 .BatmanDancer{
-  border:10px solid pink;
-  border-radius:10px;
+  /* border:10px solid pink;
+  border-radius:10px; */
+  border: none;
   position:absolute;
+  background-image: url(batman.jpg);
+  height: 100px;
+  width: 100px;
+  background-size: 100%;
 }
+
+/* .BatmanDancer:hover {
+  rotate: 180;
+  height: 200px;
+  width: 200px;
+} */

@@ -2,7 +2,8 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   //var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
   //console.log("blinky-time:", timeBetweenSteps);
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="BlinkyDancer"></span>');
+
+  this.$node.addClass('BlinkyDancer');
 };
 
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
