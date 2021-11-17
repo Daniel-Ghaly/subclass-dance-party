@@ -37,3 +37,11 @@ makeDancer.prototype.lineUp = function() {
   };
   this.$node.css(styleSettings);
 };
+
+makeDancer.prototype.pairUp = function(shortestDistanceNeighbor) {
+  var styleSettings = {
+    top: shortestDistanceNeighbor.top,
+    left: shortestDistanceNeighbor.left + 500
+  };
+  this.$node.css(styleSettings);
+};

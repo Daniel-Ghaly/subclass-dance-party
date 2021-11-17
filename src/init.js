@@ -26,7 +26,7 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 2500
+      Math.random() * 1000
     );
 
     $('body').append(dancer.$node);
@@ -34,14 +34,45 @@ $(document).ready(function() {
   });
 
   $('#line-up-button').on('click', function(event) {
-    console.log(window.dancers);
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].lineUp();
     }
   });
 
 
+  $('#pair-up-button').on('click', function(event) {
+    // console.log(window.dancers)
+    var alreadyPairedIndexes = [];
+    for (var i = 0; i < window.dancers.length; i++) {
+      // skip dancers already paired up
+      if (alreadyPairedIndexes.includes(i)) {
+        continue;
+      }
+      // get distance to each dancer, and find lowest
+      var shortestDistanceNeighbor = window.dancers[0];
+      for (var j = 0; j < window.dancers.length; j++) {
+        if (i !== j) {
+          // get distance
+          var distance = getDistance(window.dancers[i], window.dancers[j])
+          if (distance < getDistance(shortestDistanceNeighbor, window.dancers[i])) {
+            shortestDistanceNeighbor = window.dancers[j];
+             // get j index of closest partner to skip that index in first loop
+             if (j === window.dancers.length-1){
+              alreadyPairedIndexes.push(j)
+             }
+          }
+        }
+      }
+      // store closest neighbor and send to makeDancer.prototype.pairUp() function
+      window.dancers[i].pairUp(shortestDistanceNeighbor)
 
+    }
+  });
+
+  function getDistance(dancerOne, dancerTwo) {
+    var expression = ((dancerTwo.left-dancerOne.left)**2) - ((dancerTwo.top-dancerOne.top)**2);
+    return Math.sqrt(expression);
+  }
 
 });
 
